@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  protect_from_forgery with: :null_session
-  skip_before_action :verify_authenticity_token
+  skip_forgery_protection
 
   def create
     user = User.where(email: params[:email]).take

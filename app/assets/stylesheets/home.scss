@@ -1,3 +1,58 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.react-app {
+  color: #333;
+  font-family: 'Helvetica Nueue', Arial, sans-serif;
+  font-size: 16px;
+
+  * { box-sizing: border-box; }
+
+  header.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 7px;
+
+    .brand { font-size: 1.5rem; }
+
+    a.link { padding: 5px; }
+  }
+
+  .form {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 450px;
+    margin: 0 auto;
+
+    header {
+      font-weight: 600;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .body {
+      padding: 15px;
+
+      .form-group {
+        margin-bottom: 20px;
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        input {
+          font-size: 1rem;
+          padding: 6px 12px;
+          width: 100%;
+        }
+      }
+    }
+
+    footer {
+      padding: 15px;
+      text-align: right;
+      border-top: 1px solid #ddd;
+    }
+  }
+
+}

@@ -7,6 +7,10 @@ export default {
     return jwt;
   },
 
+  getToken() {
+    return jwt;
+  },
+
   login(email, password) {
     return axios.post("/sessions", {
       email: email,

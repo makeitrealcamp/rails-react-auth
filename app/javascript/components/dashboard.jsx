@@ -1,8 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import users from '../services/users';
 
-const Dashboard = props => (
-  <h1>Great, you are authenticated!</h1>
-)
+export default class Dashboard extends React.Component {
+  constructor() {
+    super();
 
-export default Dashboard;
+    this.state = { users: [] }
+  }
+
+  componentDidMount() {
+    users.list()
+      .then((response) => {
+        this.setState({ users: response.data });
+      });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Users</h1>
+        <table>
+          <tbody>
+            {this.state.users.map((user, i) => (
+              <tr key={i}>
+                <td>{user.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+}
