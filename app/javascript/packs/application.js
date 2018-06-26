@@ -8,6 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(
     <App />,
-    document.body.appendChild(wrapper),
+    document.body.appendChild(wrapper)
   )
-})
+});

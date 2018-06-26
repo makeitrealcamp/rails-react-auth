@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './private_route';
+import MainHeader from './main_header'
 import Dashboard from './dashboard';
 import Login from './login';
 import SignUp from './sign_up';
@@ -19,11 +20,7 @@ export default class App extends React.Component {
     return (
       <Router>
         <div>
-          <header className="main">
-            <div className="brand">React Auth</div>
-
-            {this.rightLinks()}
-          </header>
+          <MainHeader logout={this.logout.bind(this)} isAuthenticated={this.state.isAuthenticated} />
 
           <Switch>
             <PrivateRoute exact path="/" component={Dashboard} />
@@ -32,19 +29,6 @@ export default class App extends React.Component {
           </Switch>
         </div>
       </Router>
-    );
-  }
-
-  rightLinks() {
-    return (auth.isAuthenticated() ?
-      <div>
-        <a href="#" onClick={this.logout.bind(this)} className="link">Logout</a>
-      </div>
-    :
-      <div>
-        <NavLink to="/login" className="link">Login</NavLink>
-        <NavLink to="/signup" className="link">Sign Up</NavLink>
-      </div>
     );
   }
 
